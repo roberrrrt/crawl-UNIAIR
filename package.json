@@ -1,0 +1,18 @@
+{
+  "name": "crawl-ticket",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "echo": "echo 123",
+    "crawl": "node crawl.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "moment-timezone": "^0.5.33",
+    "puppeteer": "^8.0.0",
+    "random-useragent": "^0.5.0"
+  }
+}

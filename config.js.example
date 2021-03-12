@@ -1,0 +1,52 @@
+module.exports = {
+  gateway: {
+    url: 'https://www.uniair.com.tw/rwd/index.aspx',
+  },
+  expectedDep: '2021-05-12 15:00', // 預計出發時間
+  expectedArr: '2021-05-15 12:00', // 預計回程時間
+  mobileNum: '0988777666',
+  email: 'king06128@gmail.com',
+  // 信用卡資料
+  creditCardInfo: {
+    type: 2,
+    number: '4444333322221111',
+    expiryMonth: '05',
+    expiryYear: '2021',
+    code: '777',
+  },
+  // 旅客資料
+  customers: [
+    {
+      index: '0',
+      lastName: '羅',
+      firstName: '伯特',
+      gender: 'MR',
+      born: '1994/11/25',
+      identityID: 'A114057376',
+    },
+    {
+      index: '1',
+      lastName: '陳',
+      firstName: '浩南',
+      gender: 'MR',
+      born: '1988/10/22',
+      identityID: 'B110616147',
+    },
+    {
+      index: '2',
+      lastName: '派',
+      firstName: '崔克',
+      gender: 'MR',
+      born: '1989/01/13',
+      identityID: 'B104097752',
+    },
+    {
+      index: '3',
+      lastName: '史',
+      firstName: '黛西',
+      gender: 'MS',
+      born: '1998/05/05',
+      identityID: 'C227077653',
+    },
+  ],
+}
