@@ -98,8 +98,9 @@ const run = async () => {
     await page.$eval('#CPH_Body_hi_TRIP_DATE', (el, value) => el.value = value, roundTripTime);
 
     // 選擇旅客動作
+    const customerCount = customers.length;
     await page.click('#CPH_Body_pnl_BookingWidget_PAX_NUM'); // 選擇人數
-    for (let i = 0; i < 3; i++)
+    for (let i = 1; i < customerCount; i++)
       await page.click('#CPH_Body_pnl_BookingWidget_PAX_NUM > div > div > div:nth-child(1) > div > div.col-5 > div > div:nth-child(3) > button');
     await page.click('#CPH_Body_pnl_BookingWidget_PAX_NUM > div > div > button') // 按下完成
 
@@ -115,7 +116,7 @@ const run = async () => {
 
     await page.mouse.move(0, 0);
     await page.waitForTimeout(1000); // 等待一秒
-    await page.select('#CPH_Body_rpt_FareType_rpt_FareInfo_0_ddl_Num_0', '4') // 選擇數量
+    await page.select('#CPH_Body_rpt_FareType_rpt_FareInfo_0_ddl_Num_0', customerCount.toString()) // 選擇數量
     await page.click('#CPH_Body_btn_NextStep');
 
     await page.waitForSelector('#pnl_page > div.page-inner.px-md-3 > div.stepwizard.mb-0.mb-md-3 > div > div'); // 確定網頁的元素出現

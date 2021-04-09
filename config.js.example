@@ -14,7 +14,7 @@ module.exports = {
     expiryYear: '2021',
     code: '777',
   },
-  // 旅客資料
+  // 旅客資料 (人數自行調整，最少一個，最多四個)
   customers: [
     {
       index: '0',
