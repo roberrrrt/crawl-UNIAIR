@@ -2,6 +2,23 @@ module.exports = {
   gateway: {
     url: 'https://www.uniair.com.tw/rwd/index.aspx',
   },
+  /**
+   * 出發地點及目的地請依照MAP填入對應英文
+   *
+   * 松山: TSA
+   * 台中: RMQ
+   * 嘉義: CYI
+   * 台南: TVV
+   * 高雄: KHH
+   * 花蓮: HUN
+   * 台東: TTT
+   * 金門: KNH
+   * 澎湖: MZG
+   * 南竿: LZN
+   * 北竿: MFK
+   */
+  origin: 'RMQ', // 出發地點
+  destination: 'KNH', // 目的地
   expectedDep: '2021-05-12 15:00', // 預計出發時間
   expectedArr: '2021-05-15 12:00', // 預計回程時間
   mobileNum: '0988777666',

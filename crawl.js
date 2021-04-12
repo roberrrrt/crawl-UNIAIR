@@ -1,7 +1,17 @@
 const puppeteer = require('puppeteer');
 const moment = require('moment-timezone');
 moment.suppressDeprecationWarnings = true; // 關閉錯誤提示
-const { gateway, expectedDep, expectedArr, mobileNum, email, creditCardInfo, customers } = require('./config');
+const {
+  gateway,
+  origin,
+  destination,
+  expectedDep,
+  expectedArr,
+  mobileNum,
+  email,
+  creditCardInfo,
+  customers,
+} = require('./config');
 
 // 信用卡種類
 const creditCardMap = {
@@ -37,6 +47,7 @@ const checkTime = (type, listTime) => {
   const start = moment(expectedDate).subtract(1, 'hours').format();
   const end = moment(expectedDate).add(1, 'hours').format();
 
+  // 機票時間抓預計時間內前後一小時有匹配的就回傳
   if (moment(ticketTime).isBefore(end) && moment(ticketTime).isAfter(start)) {
     return true;
   }
@@ -86,7 +97,9 @@ const run = async () => {
     await page.click('#btn_ViewPolicy'); // 關閉cookie
     await page.click('#pnl_page > div:nth-child(4) > div > div.-booking-widget.aos-init.aos-animate > div.input-form > div.row.mb-3 > div.col-auto > div > label:nth-child(2)'); // 點擊來回
     await page.click('#CPH_Body_pnl_BookingWidget_DEP > div'); // 點起程點
-    await page.select('#ddl_DEP', 'RMQ') // 選擇台中
+    await page.select('#ddl_DEP', origin.toString());
+    await page.click('#CPH_Body_pnl_BookingWidget_ARR > div'); // 點目的地
+    await page.select('#ddl_ARR', destination.toString());
 
     // 選擇日期動作
     await page.click('#CPH_Body_pnl_BookingWidget_TRIP_DATE > div'); // 選擇日期
